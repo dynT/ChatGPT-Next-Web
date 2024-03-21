@@ -29,6 +29,7 @@ import { AuthPage } from "./auth";
 import { getClientConfig } from "../config/client";
 import { ClientApi } from "../client/api";
 import { useAccessStore } from "../store";
+import { Instruction } from "./instruction";
 
 export function Loading(props: { noLogo?: boolean }) {
   return (
@@ -161,6 +162,11 @@ function Screen() {
               <Route path={Path.Settings} element={<Settings />} />
             </Routes>
           </div>
+          {
+            (!isMobileScreen && !config.hideInstruction) ? (
+              <Instruction />
+            ) : null
+          }
         </>
       )}
     </div>
